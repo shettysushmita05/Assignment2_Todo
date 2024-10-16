@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    /* background-color: #f4f4f4; */
+    background-image: linear-gradient(to bottom right, green , rgb(68, 10, 228), purple);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    
+  }
+  
+  .container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    
+  }
+  
+  h1, h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"], textarea {
+    padding: 20px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    font-size: 16px;
+  }
+/*   
+   textarea {
+    resize: vertical;
+  }  */
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .purple-btn {
+    background-color: rgb(24, 85, 239);
+  }
+  
+  .green-btn {
+    background-color: green;
+  }
+  
+  .red-btn {
+    background-color: red;
+  }
+  
+  /* Media Query for Screens Smaller than 600px */
+  @media (max-width: 600px) {
+    body {
+      padding: 15px;
+      font-size: 14px; /* Reduce the overall body font size */
+    }
+  
+    h1, h2 {
+      font-size: 20px; /* Reduce the heading size */
+    }
+  
+    .container {
+      padding: 15px;
+    }
+  
+    .input-section {
+      flex-direction: column; /* Stack input and button vertically */
+    }
+  
+    input[type="text"], textarea {
+      font-size: 14px; /* Reduce input font size */
+    }
+  
+    button {
+      font-size: 14px; /* Reduce button font size */
+    }
+  
+    ul li {
+      font-size: 14px; /* Reduce list item font size */
+    }
+  }
+  
+  /* Media Query for Screens Smaller than 400px */
+  @media (max-width: 400px) {
+    body {
+      font-size: 12px; /* Further reduce body font size */
+    }
+  
+    h1, h2 {
+      font-size: 18px; /* Further reduce heading size */
+    }
+  
+    input[type="text"], textarea {
+      font-size: 12px; /* Further reduce input font size */
+    }
+  
+    button {
+      font-size: 12px; /* Further reduce button font size */
+    }
+  
+    ul li {
+      font-size: 12px; /* Further reduce list item font size */
+    }
+  }
+  
