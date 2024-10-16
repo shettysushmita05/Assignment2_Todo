@@ -6,13 +6,13 @@
   
   body {
     font-family: Arial, sans-serif;
-    /* background-color: #f4f4f4; */
     background-image: linear-gradient(to bottom right, green , rgb(68, 10, 228), purple);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     padding: 20px;
+    overflow: hidden;
     
   }
   
@@ -23,6 +23,10 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 500px;
     width: 100%;
+    max-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     
   }
   
@@ -45,13 +49,16 @@
     outline: none;
     font-size: 16px;
   }
-/*   
+  
    textarea {
     resize: vertical;
-  }  */
+  } 
   ul {
     list-style: none;
     padding: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 60vh;
   }
   
   li {
@@ -89,7 +96,8 @@
   @media (max-width: 600px) {
     body {
       padding: 15px;
-      font-size: 14px; /* Reduce the overall body font size */
+      font-size: 14px;
+      overflow: auto; /* Reduce the overall body font size */
     }
   
     h1, h2 {
@@ -98,6 +106,8 @@
   
     .container {
       padding: 15px;
+      max-width: 100%;
+      max-height: 90vh;
     }
   
     .input-section {
