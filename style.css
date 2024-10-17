@@ -1,152 +1,184 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  /* background-color: #f4f4f4; */
+  background-image: linear-gradient(to bottom right , white, purple);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Changed to flex-start */
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  background: #fff;
+  background-image: linear-gradient(to bottom right , purple, rgb(191, 74, 191),white);;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+.outerbox{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+
+.todo-section, .enquiry-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 300px; /* Ensures minimum width */
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 2rem; /* Font size for large screens */
+}
+
+.input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="text"], textarea {
+  padding: 12px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+  font-size: 1.2rem; /* Font size for large screens */
+}
+
+textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  flex-grow: 1;
+  overflow-y: auto; /* Allow scrolling */
+  max-height: 400px;
+}
+
+li {
+  padding: 20px;
+  background: #f9f9f9;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem; /* Larger font for desktop */
+}
+
+button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+}
+
+.purple-btn {
+  background-color: purple;
+}
+
+.green-btn {
+  background-color: green;
+}
+
+.red-btn {
+  background-color: red;
+}
+
+/* Media Query for Tablet Screens */
+@media (max-width: 1024px) {
+  h2 {
+    font-size: 1.8rem; /* Slightly smaller for tablets */
   }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-image: linear-gradient(to bottom right, green , rgb(68, 10, 228), purple);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 20px;
-    overflow: hidden;
-    
-  }
-  
-  .container {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 100%;
-    max-height: 80vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    
-  }
-  
-  h1, h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-  }
-  
-  .input-section {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
+
   input[type="text"], textarea {
-    padding: 20px;
-    width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    outline: none;
-    font-size: 16px;
+    font-size: 1.1rem;
   }
-  
-   textarea {
-    resize: vertical;
-  } 
-  ul {
-    list-style: none;
-    padding: 0;
-    flex-grow: 1;
-    overflow-y: auto;
-    max-height: 60vh;
+
+  ul li {
+    font-size: 1.4rem;
   }
-  
-  li {
-    padding: 10px;
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
+
   button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    color: white;
+    font-size: 1rem;
   }
-  
-  .purple-btn {
-    background-color: rgb(24, 85, 239);
+}
+
+/* Media Query for Mobile Screens */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.5rem; /* Smaller for mobile */
   }
-  
-  .green-btn {
-    background-color: green;
+
+  input[type="text"], textarea {
+    font-size: 1rem; /* Adjust input font size */
   }
-  
-  .red-btn {
-    background-color: red;
+
+  ul li {
+    font-size: 1.2rem; /* Reduce item size */
+    padding: 15px;
   }
-  
-  /* Media Query for Screens Smaller than 600px */
-  @media (max-width: 600px) {
-    body {
-      padding: 15px;
-      font-size: 14px;
-      overflow: auto; /* Reduce the overall body font size */
-    }
-  
-    h1, h2 {
-      font-size: 20px; /* Reduce the heading size */
-    }
-  
-    .container {
-      padding: 15px;
-      max-width: 100%;
-      max-height: 90vh;
-    }
-  
-    .input-section {
-      flex-direction: column; /* Stack input and button vertically */
-    }
-  
-    input[type="text"], textarea {
-      font-size: 14px; /* Reduce input font size */
-    }
-  
-    button {
-      font-size: 14px; /* Reduce button font size */
-    }
-  
-    ul li {
-      font-size: 14px; /* Reduce list item font size */
-    }
+
+  button {
+    font-size: 0.9rem;
   }
-  
-  /* Media Query for Screens Smaller than 400px */
-  @media (max-width: 400px) {
-    body {
-      font-size: 12px; /* Further reduce body font size */
-    }
-  
-    h1, h2 {
-      font-size: 18px; /* Further reduce heading size */
-    }
-  
-    input[type="text"], textarea {
-      font-size: 12px; /* Further reduce input font size */
-    }
-  
-    button {
-      font-size: 12px; /* Further reduce button font size */
-    }
-  
-    ul li {
-      font-size: 12px; /* Further reduce list item font size */
-    }
+
+  /* Stack sections vertically on smaller screens */
+  .container {
+    flex-direction: column; /* Stack items vertically */
+    padding: 15px;
   }
-  
+
+  .input-section {
+    flex-direction: column; /* Stack inputs vertically */
+  }
+}
+
+/* Media Query for Very Small Mobile Screens */
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.2rem; /* Further reduced for small screens */
+  }
+
+  input[type="text"], textarea {
+    font-size: 0.9rem;
+  }
+
+  ul li {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  button {
+    font-size: 0.8rem;
+  }
+}   

@@ -3,28 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To-Do List App</title>
+  <title>To-Do List and Customer Enquiry</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>To-Do List</h1>
-    <div class="input-section">
-      <input type="text" id="task-input" placeholder="Add a new task..." />
-      <button id="add-task" class="purple-btn">Add Task</button>
-    </div>
+    <div class="outerbox">
+    <!-- To-Do List Section -->
+    <section class="todo-section">
+      <h2>To-Do List</h2>
+      <div class="input-section">
+        <input type="text" id="taskInput" placeholder="Enter a task">
+        <button id="addTaskBtn" class="purple-btn">Add Task</button>
+      </div>
+      <ul id="taskList"></ul>
+    </section>
+  </div>
 
-    <ul id="task-list"></ul>
+  <div class="outerbox">
+    <!-- Customer Enquiry Section -->
+    <!-- Customer Enquiry Section -->
+<div class="enquiry-section">
+  <h2>Customer Enquiry Form</h2>
+  <div class="input-section">
+      <input type="text" id="name" placeholder="Your Name" required>
+  </div>
+  <div class="input-section">
+      <input type="email" id="email" placeholder="Your Email" required>
+  </div>
+  <div class="input-section">
+      <textarea id="customerMessage" placeholder="Enter your message" required></textarea>
+  </div>
+  <button class="purple-btn" id="submitEnquiry">Submit Enquiry</button>
+</div>
 
-    <h2>Customer Enquiry Form</h2>
-    <form id="enquiry-form">
-      <input type="text" id="name" placeholder="Your Name" required />
-      <input type="email" id="email" placeholder="Your Email" required />
-      <textarea id="message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="purple-btn">Submit</button>
-    </form>
+  </div>
   </div>
 
   <script src="script.js"></script>
+ 
 </body>
 </html>

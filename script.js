@@ -1,90 +1,78 @@
+// Selecting elements for the To-Do List
+const taskInput = document.getElementById('taskInput');
+const addTaskBtn = document.getElementById('addTaskBtn');
+const taskList = document.getElementById('taskList'); // Correct ID for the task list
 
+let editMode = false;
+let currentTaskElement = null;
 
-let editMode = false; 
-let taskBeingEdited = null; 
+// Add or Update Task function
+function addOrUpdateTask() {
+    const taskText = taskInput.value.trim();
+    if (!taskText) {
+        alert('Please enter a task');
+        return;
+    }
 
-// Add Task Button
-const addTaskButton = document.getElementById('add-task');
-const taskInput = document.getElementById('task-input');
-const taskList = document.getElementById('task-list');
+    if (editMode) {
+        currentTaskElement.querySelector('.task-text').textContent = taskText;
+        exitEditMode();
+    } else {
+        createTaskElement(taskText);
+    }
 
-// Function to add or update a task
-addTaskButton.addEventListener('click', function() {
-  const taskText = taskInput.value.trim();
+    taskInput.value = ''; // Clear input
+}
 
-  if (taskText === '') {
-    alert('Please enter a task');
-    return;
-  }
-
-  if (editMode) {
-    // Update existing task if in edit mode
-    taskBeingEdited.textContent = taskText;
-    editMode = false;
-    taskBeingEdited = null;
-    addTaskButton.textContent = 'Add Task';  // Reset button text to "Add Task"
-  } else {
-    // Add new task if not in edit mode
+// Create a task element
+function createTaskElement(taskText) {
     const li = document.createElement('li');
-    const taskContent = document.createElement('span');
-    taskContent.textContent = taskText;
-
-    const editButton = document.createElement('button');
-    editButton.textContent = 'Edit';
-    editButton.classList.add('green-btn');
-    editButton.addEventListener('click', () => editTask(taskContent));
-
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
-    deleteButton.classList.add('red-btn');
-    deleteButton.addEventListener('click', () => deleteTask(li));
-
-    li.appendChild(taskContent);
-    li.appendChild(editButton);
-    li.appendChild(deleteButton);
-    taskList.appendChild(li);
-  }
-
-  taskInput.value = '';  // Clear input 
-});
-
-// delete a task
-function deleteTask(task) {
-  taskList.removeChild(task);
+    li.innerHTML = `
+        <span class="task-text">${taskText}</span>
+        <button class="green-btn" onclick="editTask(this)">Edit</button>
+        <button class="red-btn" onclick="deleteTask(this)">Delete</button>
+    `;
+    taskList.appendChild(li); // Append the new task to the task list
 }
 
-//edit a task
-function editTask(taskContent) {
-  taskInput.value = taskContent.textContent;  
-  taskBeingEdited = taskContent;  
-  editMode = true; 
-  addTaskButton.textContent = 'Update Task'; 
+// Edit task function
+function editTask(button) {
+    const taskItem = button.parentElement;
+    const taskText = taskItem.querySelector('.task-text').textContent;
+    taskInput.value = taskText;
+    editMode = true;
+    currentTaskElement = taskItem;
+    addTaskBtn.textContent = 'Update Task';
 }
 
+// Delete task function
+function deleteTask(button) {
+    button.parentElement.remove();
+}
 
+// Exit edit mode
+function exitEditMode() {
+    editMode = false;
+    currentTaskElement = null;
+    addTaskBtn.textContent = 'Add Task';
+}
 
+// Add task button click event
+addTaskBtn.addEventListener('click', addOrUpdateTask);
 
+// Handle customer enquiry submission
+document.getElementById('submitEnquiry').addEventListener('click', function() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('customerMessage').value;
 
-
-
-
-
-
-// customer enquiry form submission
-const enquiryForm = document.getElementById('enquiry-form');
-enquiryForm.addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
-
-  console.log('Customer Enquiry:', {
-    Name: name,
-    Email: email,
-    Message: message
-  });
-
-  alert('Enquiry submitted successfully! Check console for details.');
-  enquiryForm.reset();
+    if (name && email && message) {
+        console.log('Customer Enquiry:', { name, email, message });
+        alert('Enquiry submitted!');
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('customerMessage').value = '';
+    } else {
+        alert('Please fill in all fields.');
+    }
 });
