@@ -60,7 +60,7 @@ h2 {
   margin-bottom: 20px;
 }
 
-input[type="text"], textarea {
+input[type="text"],[type="email"], textarea {
   padding: 12px;
   width: 100%;
   border: 1px solid #ddd;
@@ -120,7 +120,7 @@ button {
     font-size: 1.8rem; /* Slightly smaller for tablets */
   }
 
-  input[type="text"], textarea {
+  input[type="text"],[type="email"], textarea {
     font-size: 1.1rem;
   }
 
@@ -139,7 +139,7 @@ button {
     font-size: 1.5rem; /* Smaller for mobile */
   }
 
-  input[type="text"], textarea {
+  input[type="text"],[type="email"], textarea {
     font-size: 1rem; /* Adjust input font size */
   }
 
@@ -154,7 +154,8 @@ button {
 
   /* Stack sections vertically on smaller screens */
   .container {
-    flex-direction: column; /* Stack items vertically */
+    /* flex-direction: column;  */
+    /* Stack items vertically */
     padding: 15px;
   }
 
@@ -164,7 +165,7 @@ button {
 }
 
 /* Media Query for Very Small Mobile Screens */
-@media (max-width: 480px) {
+@media (max-width: 350px) {
   h2 {
     font-size: 1.2rem; /* Further reduced for small screens */
   }
@@ -181,4 +182,5 @@ button {
   button {
     font-size: 0.8rem;
   }
+  
 }   
